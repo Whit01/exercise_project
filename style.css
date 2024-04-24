@@ -7,55 +7,88 @@
 
 /* Global styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
 /* Header styles */
 header {
-    background-color: #333;
+    background-color: #1e1e1e; /* Dark background */
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
+.header-inner {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffd700; /* Gold color on hover */
 }
 
 /* Main content styles */
 main {
+    min-height: calc(100vh - 150px); /* Adjust based on header and footer height */
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 section {
     margin-bottom: 30px;
+    text-align: center; /* Center text within sections */
 }
 
 h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1e1e1e; /* Dark text color */
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #333;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #1e1e1e; /* Dark button background */
     color: #fff;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #555;
+    background-color: #333; /* Slightly lighter on hover */
 }
 
 /* Exercise section styles */
@@ -64,18 +97,14 @@ button:hover {
 }
 
 .exercise-info {
-    text-align: center;
     margin-bottom: 20px;
 }
 
 #exerciseTitle {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-#timer, #reminder {
-    font-size: 18px;
-    margin-bottom: 5px;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #1e1e1e; /* Dark text color */
 }
 
 .view {
@@ -85,15 +114,148 @@ button:hover {
 .twod {
     max-width: 100%;
     height: auto;
-    border: 2px solid #333;
-    border-radius: 5px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
 }
 
 /* Footer styles */
 footer {
-    background-color: #333;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1e1e1e; /* Dark background */
     color: #fff;
     text-align: center;
     padding: 10px;
-    font-size: 14px;
+    font-size: 1rem;
+}
+
+/* Timer styles */
+#timer {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #1e1e1e; /* Dark background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+#timer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #ff5f6d, #ffc371);
+    border-radius: 10px;
+    z-index: -1;
+    animation: gradient-animation 5s linear infinite; /* Gradient animation */
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: left top;
+    }
+    100% {
+        background-position: right top;
+    }
+}
+
+#timer span {
+    display: block;
+    font-size: 0.6em;
+    color: #fff;
+    margin-top: 10px;
+}
+
+/* Adjustments for responsiveness */
+@media (max-width: 768px) {
+    .header-inner {
+        padding: 0 10px; /* Smaller padding for header */
+    }
+
+    main {
+        padding: 15px; /* Smaller padding for main content */
+    }
+
+    h2 {
+        font-size: 1.3rem; /* Smaller font size for h2 */
+    }
+
+    button {
+        padding: 0.8rem 1.5rem; /* Smaller button padding */
+    }
+
+    footer {
+        padding: 8px; /* Smaller padding for footer */
+    }
+
+    #timer {
+        font-size: 2rem;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    #timer span {
+        font-size: 0.5em;
+    }
+}
+.person {
+    width: 100px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    position: relative;
+}
+
+.head {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #333;
+    margin-bottom: 0px;
+}
+
+.body {
+    width: 10px;
+    height: 50px;
+    background-color: #333;
+}
+
+.arms {
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.arm {
+    width: 10px;
+    height: 40px;
+    background-color: #333;
+}
+
+.stretch {
+    animation: stretchAnimation 1s infinite alternate-reverse;
+}
+
+@keyframes stretchAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
 }
