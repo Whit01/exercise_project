@@ -36,6 +36,12 @@ $(document).ready(function () {
         if (timeLeft == -1) {
           clearTimeout(timerId);
           option++;
+          document.getElementById("arm1").style.width = "40px";
+          document.getElementById("arm1").style.height = "10px";
+          document.getElementById("arm1").style.marginTop = "30px";
+          document.getElementById("arm2").style.width = "40px";
+          document.getElementById("arm2").style.height = "10px";
+          document.getElementById("arm2").style.marginTop = "30px";
           timeLeft = 30;
           startExercise();
         } else {
